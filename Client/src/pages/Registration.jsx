@@ -3,9 +3,10 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import React, { useState } from 'react'
 import BASE_URL from '../config/config';
-
-  import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
+
+
 function Registration() {
 const [Input, setInput] = useState({});
 
@@ -24,7 +25,7 @@ const handelInput = (e)=>{
         const response = await axios.post(api, Input);
         toast.success(response.data.msg);
        } catch (error) {
-        toast.error(response.data.msg);
+        toast.error(error.response.data.msg);
        }
       }
 
