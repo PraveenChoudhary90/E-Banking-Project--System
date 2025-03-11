@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import React, { useState } from 'react'
 import BASE_URL from '../config/config';
+
+  import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
 function Registration() {
 const [Input, setInput] = useState({});
@@ -20,9 +22,9 @@ const handelInput = (e)=>{
        const api = `${BASE_URL}/BankData/InsertData`;
        try {
         const response = await axios.post(api, Input);
-        console.log(response.data);
+        toast.success(response.data.msg);
        } catch (error) {
-        console.log(error)
+        toast.error(response.data.msg);
        }
       }
 
@@ -77,6 +79,7 @@ const handelInput = (e)=>{
           </Button>
         </Form>
        </div>
+       <ToastContainer />
     </>
   )
 }

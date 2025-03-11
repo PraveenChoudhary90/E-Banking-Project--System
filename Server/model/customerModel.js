@@ -33,6 +33,10 @@ const customerSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+     mypassword: {
+        type: String,
+        require: true
+    }
 }) 
 
 module.exports = mongoose.model("customer", customerSchema);
