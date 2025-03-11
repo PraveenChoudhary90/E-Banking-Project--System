@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors"); 
 require("dotenv").config();
-
+const CustomerRoute = require("./routes/customerRoute");
 
 app.use(cors());
 // Parse incoming requests with JSON payloads
@@ -17,7 +17,7 @@ mongoose.connect(process.env.STRING).then(()=>{
     console.log("DB IS CONNECTED");
 })
 
-
+app.use("/BankData", CustomerRoute );
 
 const port = process.env.PORT;
 app.listen(port,()=>{

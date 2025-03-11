@@ -21,7 +21,7 @@ const customerSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-     fulladress: {
+     fulladdress: {
         type: String,
         require: true
     },
