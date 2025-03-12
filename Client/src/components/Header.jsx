@@ -5,7 +5,7 @@ function Header() {
     <>
     <div id="header">
     {/* <img src="bank.jpeg" width="150px" height="100px" style={{paddingBottom:"20px"}} alt="" /> */}
-    <img src="bank1.jpg" width="300px" height="190px" style={{paddingBottom:"20px"}} alt="" />
+    <img src="pic3.jpeg" width="250px" height="170px" style={{paddingBottom:"20px"}} alt="" />
     <h1 style={{paddingTop:"40px"}}>E-Banking-Project-Site </h1>
         
     </div>
