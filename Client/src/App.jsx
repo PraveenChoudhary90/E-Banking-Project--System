@@ -5,6 +5,7 @@ import Registration from "./pages/Registration"
 import Nopage from "./pages/Nopage"
 import About from "./pages/About"
 import Dashboard from "./pages/Dashboard"
+import SubmitCash from "./pages/SubmitCash"
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
     </Routes>
     <Routes >
       <Route path="dashboard" element={<Dashboard/>}>
+      <Route path="submitcash" element={<SubmitCash/>}/>
       </Route>
     </Routes>
     </BrowserRouter>
