@@ -17,7 +17,8 @@ const InsertUserData = async(req,res)=>{
         mobile:mobile,
         fulladdress:fulladdress,
         pincode:pincode,
-        statename:statename
+        statename:statename,
+        mypassword:myPAss
     })
      res.status(200).send({msg:"Your Account Is Open SuccessFully Now You Can Check Your Password On Email"})
    } catch (error) {
