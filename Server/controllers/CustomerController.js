@@ -18,7 +18,7 @@ const InsertUserData = async(req,res)=>{
         fulladdress:fulladdress,
         pincode:pincode,
         statename:statename,
-        mypassword:myPAss
+        password:myPAss
     })
      res.status(200).send({msg:"Your Account Is Open SuccessFully Now You Can Check Your Password On Email"})
    } catch (error) {
@@ -56,6 +56,21 @@ mailTransporter
 
 
 
+const CustomerLoginData = async(req,res)=>{
+    const {email, password} = req.body;
+    try {
+      const Customer = await CustomerModel.findOne({email:email}); 
+      if(!Customer){
+        res.status(400).send({msg:"Email Not Found"});
+      }
+      if(Customer.password != password){
+        res.status(400).send({msg:"Password Not Match"});
+      } 
+      res.status(200).send(Customer); 
+    } catch (error) {
+        res.status(400).send({msg:"Error in Server Side "})
+    }
+}
 
 
 
@@ -63,5 +78,6 @@ mailTransporter
 
 
 module.exports = {
-    InsertUserData
+    InsertUserData,
+    CustomerLoginData
 }

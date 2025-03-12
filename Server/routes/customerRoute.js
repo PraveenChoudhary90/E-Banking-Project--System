@@ -4,6 +4,7 @@ const CustomerController = require("../controllers/CustomerController");
 
 
 route.post("/InsertData", CustomerController.InsertUserData );
+route.post("/CustomerLogin", CustomerController.CustomerLoginData);
 
 
 

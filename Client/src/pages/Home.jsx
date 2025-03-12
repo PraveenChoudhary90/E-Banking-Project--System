@@ -1,9 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import BASE_URL from '../config/config';
+import axios from 'axios';
 
 function Home() {
+  const [email,setEmail] = useState("");
+  const [password, setPassword]  =useState("");
+
+  const navigate = useNavigate();
+
+  const handelSubmit = async(e)=>{
+    e.preventDefault();
+    const api = `${BASE_URL}/BankData/CustomerLogin`;
+    try {
+      const response = await axios.post(api, {email:email, password:password});
+      console.log(response.data);
+      alert("data save")
+      localStorage.setItem("username", response.data.firstname+" "+response.data.lastname);
+      localStorage.setItem("email", response.data.email);
+      localStorage.setItem("useid", response.data._id);
+      navigate("/dashboard")
+    } catch (error) {
+     console.log(error.response.data.msg) 
+    }
+  }
+
   return (
     <>
 
@@ -12,14 +35,14 @@ function Home() {
         <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email"  />
+        <Form.Control type="email" value={email} onChange={(e)=>{setEmail(e.target.value)}} />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password"  />
+        <Form.Control type="password" value={password} onChange={(e)=>{setPassword(e.target.value)}} />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" onClick={handelSubmit}>
         Submit
       </Button>
       <h5>If You Dont't have Account <button style={{borderRadius:"30px"}}><Link  to="/registration" style={{textDecoration:"none"}} >Click Here Open Account</Link> </button></h5>

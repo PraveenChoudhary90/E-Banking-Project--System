@@ -33,7 +33,7 @@ const customerSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-     mypassword: {
+     password: {
         type: String,
         require: true
     }

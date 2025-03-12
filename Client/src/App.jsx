@@ -4,6 +4,7 @@ import Home from "./pages/Home"
 import Registration from "./pages/Registration"
 import Nopage from "./pages/Nopage"
 import About from "./pages/About"
+import Dashboard from "./pages/Dashboard"
 
 function App() {
   
@@ -18,6 +19,10 @@ function App() {
       <Route path="registration" element={<Registration/>}/>
       <Route path="about" element={<About/>}/>
       <Route path="*" element={<Nopage/>}/>
+      </Route>
+    </Routes>
+    <Routes >
+      <Route path="dashboard" element={<Dashboard/>}>
       </Route>
     </Routes>
     </BrowserRouter>
