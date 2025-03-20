@@ -5,9 +5,11 @@ import React, { useState } from 'react'
 import BASE_URL from '../config/config';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 
 function Registration() {
+  const navigate = useNavigate();
 const [Input, setInput] = useState({});
 
 
@@ -24,6 +26,7 @@ const handelInput = (e)=>{
        try {
         const response = await axios.post(api, Input);
         toast.success(response.data.msg);
+        navigate("/home")
        } catch (error) {
         toast.error(error.response.data.msg);
        }
