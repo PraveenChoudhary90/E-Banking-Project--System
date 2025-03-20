@@ -19,7 +19,7 @@ function Home() {
     try {
       const response = await axios.post(api, {email:email, password:password});
       console.log(response.data);
-      toast.success("You are Login Successfully")
+      toast("You are Login Successfully")
       localStorage.setItem("username", response.data.firstname+" "+response.data.lastname);
       localStorage.setItem("email", response.data.email);
       localStorage.setItem("useid", response.data._id);

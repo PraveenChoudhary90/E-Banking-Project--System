@@ -10,7 +10,7 @@ function Header() {
     <div id="header">
     {/* <img src="bank.jpeg" width="150px" height="100px" style={{paddingBottom:"20px"}} alt="" /> */}
     <img src="pic3.jpeg" width="100px" height="100px" style={{paddingBottom:"20px"}} alt="" />
-    <h1 style={{paddingTop:"20px"}}>Welcome To E-Banking-Project</h1>
+    <h1 style={{paddingTop:"20px"}}>Welcome To E-Banking-System</h1>
     <div>
  <Navbar bg="primary" data-bs-theme="dark" style={{fontSize:"15px",marginTop:"20px"}}>
         <Container>
