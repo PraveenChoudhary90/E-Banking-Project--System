@@ -16,10 +16,14 @@ function Dashboard() {
 
   return (
     <>
-    <h1>Welcome To SBI Bank </h1>
-    Name:{localStorage.getItem("username")}
+    <div id="dash">
+      <div><h1>Welcome To SBI Bank </h1>
+   </div>
+      <div> Name:{localStorage.getItem("username")}
     Email:{localStorage.getItem("email")}
-    <button onClick={Logout}>Logout</button>
+    <button onClick={Logout}>Logout</button></div>
+    </div>
+    
            <ToastContainer />
     
     

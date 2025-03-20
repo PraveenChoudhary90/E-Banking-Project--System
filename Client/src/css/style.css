@@ -46,3 +46,8 @@
     /* background-image: url("pic1.jpg"); */
 
 }
+#dash{
+    background-color: lightcyan;
+    padding: 30px;
+    display: flex;
+}
