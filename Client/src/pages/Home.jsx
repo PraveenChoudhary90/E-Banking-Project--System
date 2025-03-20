@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
 import BASE_URL from '../config/config';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 function Home() {
   const [email,setEmail] = useState("");
@@ -17,13 +19,13 @@ function Home() {
     try {
       const response = await axios.post(api, {email:email, password:password});
       console.log(response.data);
-      alert("data save")
+      toast.success(response.data.msg)
       localStorage.setItem("username", response.data.firstname+" "+response.data.lastname);
       localStorage.setItem("email", response.data.email);
       localStorage.setItem("useid", response.data._id);
       navigate("/dashboard")
     } catch (error) {
-     console.log(error.response.data.msg) 
+     toast.error(error.response.data.msg) 
     }
   }
 
@@ -48,6 +50,8 @@ function Home() {
       <h5>If You Dont't have Account <button style={{borderRadius:"30px"}}><Link  to="/registration" style={{textDecoration:"none"}} >Click Here Open Account</Link> </button></h5>
     </Form>
    </div>
+          <ToastContainer />
+   
     
     </>
   )

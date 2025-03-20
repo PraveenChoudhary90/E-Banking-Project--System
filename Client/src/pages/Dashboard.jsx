@@ -1,4 +1,5 @@
 
+import { ToastContainer, toast } from 'react-toastify';
 
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +9,7 @@ function Dashboard() {
 
    const Logout = ()=>{
     localStorage.clear();
-    alert("Your Are Logout Successfully")
+    toast.success("Your Are Logout Successfully")
     navigate("/home")
 
    }
@@ -19,6 +20,8 @@ function Dashboard() {
     Name:{localStorage.getItem("username")}
     Email:{localStorage.getItem("email")}
     <button onClick={Logout}>Logout</button>
+           <ToastContainer />
+    
     
     </>
   )
