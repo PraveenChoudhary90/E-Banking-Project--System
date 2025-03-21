@@ -84,8 +84,8 @@ res.status(200).send(data)
 }
 const balanceDisplay = async(req , res)=>{
   const {userid} = req.query
-  const data = await transactionModel.find({customerid : userid})
-  res.status(200).send(data)
+  const balance = await transactionModel.find({customerid : userid})
+  res.status(200).send(balance)
 }
 
 
