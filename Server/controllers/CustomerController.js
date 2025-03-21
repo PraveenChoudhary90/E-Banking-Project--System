@@ -2,7 +2,7 @@
 const CustomerModel = require("../model/customerModel");
 const autoPassword = require("../middleware/autoPassword")
 const nodemailer = require("nodemailer");
-
+const transactionModel = require("../model/transactionModel")
 
 
 const InsertUserData = async(req,res)=>{
@@ -73,11 +73,27 @@ const CustomerLoginData = async(req,res)=>{
 }
 
 
+const SubmitCashData = async(req ,res)=>{
+  const{amount , status , customerid} = req.body;
+  const data = await transactionModel.create({
+    amount : amount,
+    status : status,
+    customerid : customerid
+  })
+res.status(200).send(data)
+}
+const balanceDisplay = async(req , res)=>{
+  const {userid} = req.query
+  const data = await transactionModel.find({customerid : userid})
+  res.status(200).send(data)
+}
 
 
 
 
 module.exports = {
     InsertUserData,
-    CustomerLoginData
+    CustomerLoginData,
+    SubmitCashData,
+    balanceDisplay
 }

@@ -44,14 +44,14 @@ const Dashboard = () => {
 const navigate = useNavigate()
 
     const logout = ()=>{
-        navigate("/login")
+        navigate("/home")
         localStorage.clear()
        
     }
     useEffect(()=>{
         if(!localStorage.getItem("email"))
             {
-                navigate("/login")
+                navigate("/home")
             }
     },[])
   return (
@@ -61,15 +61,15 @@ const navigate = useNavigate()
       <Navbar.Toggle aria-controls="navbarSupportedContent" />
       <Navbar.Brand href="#">
       <div id='logoimg'>
-        <img src="./logo.png" alt="" height="40px" /> <span><h1>Banking</h1></span>
+        <img src="e.jpeg" alt="" height="40px" /> <span><h1>Banking</h1></span>
     </div>
       </Navbar.Brand>
       <Navbar.Collapse id="navbarSupportedContent">
         <Nav className="me-auto">
           <Nav.Link as={Link}  to="balanceinquiry">Balance Inquiry</Nav.Link>
-          <Nav.Link as={Link} to="accountsettlement" >Account Statement</Nav.Link>
-          <Nav.Link as={Link} to="deposit">Deposit Amount</Nav.Link>
-          <Nav.Link as={Link} to="withdraw">Withdrawal Amount</Nav.Link>
+          <Nav.Link as={Link} to="accountstatement" >Account Statement</Nav.Link>
+          <Nav.Link as={Link} to="submitcash">Submit Cash Amount</Nav.Link>
+          <Nav.Link as={Link} to="withdrawcash">Withdrawal Amount</Nav.Link>
           <Nav.Link as={Link} to="reset">Reset Password</Nav.Link>
         </Nav>
       </Navbar.Collapse>

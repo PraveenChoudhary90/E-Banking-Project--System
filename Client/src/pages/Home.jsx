@@ -22,7 +22,7 @@ function Home() {
       toast("You are Login Successfully")
       localStorage.setItem("username", response.data.firstname+" "+response.data.lastname);
       localStorage.setItem("email", response.data.email);
-      localStorage.setItem("useid", response.data._id);
+      localStorage.setItem("userid", response.data._id);
       navigate("/dashboard")
     } catch (error) {
      toast.error(error.response.data.msg) 

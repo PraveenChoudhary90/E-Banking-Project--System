@@ -6,6 +6,10 @@ import Nopage from "./pages/Nopage"
 import About from "./pages/About"
 import Dashboard from "./pages/Dashboard"
 import SubmitCash from "./pages/SubmitCash"
+import WithdrawCash from "./pages/WithdrawCash"
+import ResetPassword from "./pages/ResetPassword"
+import BalanceInquiry from "./pages/BalanceInquiry"
+import AccountStatement from "./pages/AccountStatement"
 
 function App() {
   
@@ -25,6 +29,10 @@ function App() {
     <Routes>
       <Route path="dashboard" element={<Dashboard/>}>
       <Route path="submitcash" element={<SubmitCash/>}/>
+      <Route path="withdrawcash" element={<WithdrawCash/>}/>
+      <Route path="reset" element={<ResetPassword/>}/>
+      <Route path="balanceinquiry" element={<BalanceInquiry/>}/>
+      <Route path="accountstatement" element={<AccountStatement/>}/>
       </Route>
     </Routes>
     </BrowserRouter>
